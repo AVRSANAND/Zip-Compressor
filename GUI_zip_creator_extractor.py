@@ -39,11 +39,11 @@ while True:
     try:
         filepath = values["files"].split(";")
         folder = values["folder"]
-        zip_creator.make_archive(filepath, folder)
+        Zip_creator_extractor.make_archive(filepath, folder)
         window["output"].update(value="Compression Completed !")
         archive_path = values['archive']
         dest_dir = values['folder_dest']
-        zip_creator.extract_archive(archive_path,dest_dir)
+        Zip_creator_extractor.extract_archive(archive_path,dest_dir)
         window['output'].update(value="Extraction Completed")
 
         if gui.WIN_CLOSED:
