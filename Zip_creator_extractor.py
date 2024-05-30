@@ -10,5 +10,10 @@ def make_archive(filepaths, dest_dir):
             archive.write(filepath, arcname=filepath.name)
 
 
-if __name__ == "__main__":
-    make_archive(filepaths=["bonus1.py","bonus2.1.py"], dest_dir="dest")
+def extract_archive(archive_path, dest_dir):
+    with zipfile.ZipFile(archive_path, 'r') as archive:
+        archive.extractall(dest_dir)
+
+
+# if __name__ == "__main__":
+#     make_archive(filepaths=["bonus1.py","bonus2.1.py"], dest_dir="dest")
