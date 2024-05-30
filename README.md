@@ -1,6 +1,6 @@
 # ZipConverter
 
-ZipConverter is a simple Python program that allows users to convert files into zip archives using a graphical user interface (GUI). This project consists of two main files: `ZipConverter.py` and `ZipCreator.py`.
+ZipConverter is a simple Python program that allows users to convert files into zip archives using a graphical user interface (GUI). This project consists of two main files: `zip_conversion.py` and `zip_creator.py`.
 
 ## Features
 
