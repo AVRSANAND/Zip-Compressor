@@ -13,20 +13,33 @@ root.withdraw()
 # Make folder picker dialog appear on top of other windows
 root.wm_attributes('-topmost', 1)
 
-# upload_files = st.file_uploader("Upload Files", accept_multiple_files=True, key="files")
-upload_files = st.button("Upload Files")
+# Files Upload Button
 
+upload_files = st.button("Upload Files", key="files")
+
+file_paths = []
 if upload_files:
     filepaths = filedialog.askopenfilenames(master=root)
+    for files in filepaths:
+        file_paths.append(files)
     st.write(filepaths)
-# Folder picker button
+
+print(file_paths)
+
+# Destination Folder button
+
 st.write('Please select a destination folder:')
-clicked = st.button('Folder Picker')
+upload_folder = st.button('Folder Picker')
 
-if clicked:
-    dirname = st.text_input('Selected folder:', filedialog.askdirectory(master=root))
+dest_folder = ''
 
-compress = st.button("Compress")
+if upload_folder:
+    dirname = (filedialog.askdirectory(master=root))
+    dest_folder = dirname
+
+
+compress = st.button("Compress",on_click=functions.make_archive(file_paths, dest_folder))
+
 
 upload_file = st.file_uploader("Upload File", type=["zip"], accept_multiple_files=False, key="file")
 extract = st.button("Extract")
