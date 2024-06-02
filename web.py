@@ -40,9 +40,29 @@ if upload_folder:
 
 compress = st.button("Compress",on_click=functions.make_archive(file_paths, dest_folder))
 
+st.write("Extract Zip Archives.")
 
-upload_file = st.file_uploader("Upload File", type=["zip"], accept_multiple_files=False, key="file")
-extract = st.button("Extract")
+
+upload_archive = st.button("Upload Archive", key="archive")
+# archive = []
+
+if upload_archive:
+    archive = filedialog.askdirectory(master=root)
+    st.write(archive)
+
+upload_dest_folder = st.button('Folder Picker', key="dest_folder")
+
+# extracted_dest_folder = []
+
+if upload_dest_folder:
+    dirname = (filedialog.askdirectory(master=root))
+    # extracted_dest_folder = dirname
+    st.write(dirname)
+# extract = st.button("Extract", on_click=functions.extract_archive(archive, extracted_dest_folder))
+
+
+# upload_file = st.file_uploader("Upload File", type=["zip"], accept_multiple_files=False, key="file")
+# extract = st.button("Extract")
 
 # print(upload_files, compress, upload_file, extract)
 st.session_state
